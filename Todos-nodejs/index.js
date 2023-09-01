@@ -29,24 +29,7 @@ app.use(express.urlencoded());
 app.use(express.static('assets'));
 
 
-// registering the user in the database
-app.post('/register', (req, res) => {
-    Register.create({
-        name: req.body.name,
-        lastName: req.body.lastName,
-        phone: req.body.phone,
-        email: req.body.email,
-        password: req.body.password
-    })
-    .then(user => {
-        console.log("Successfully Created user!", user);
-        res.redirect('/dashboard');
-    })
-    .catch(err => {
-        console.log("Error Creating user!!", err);
-        res.status(500).send("Error Creating user!!");
-    });
-});
+
 
 // adding the task to the database
 app.post('/addtask', function(req,res){

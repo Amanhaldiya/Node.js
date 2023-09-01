@@ -2,14 +2,15 @@ const express = require('express');
 const port = process.env.PORT||4000;
 const path = require('path');
 
+
+
+
 // require the mongoose file
 const db = require('./config/mongoose');
-const User = require('./models/register');
-const Login = require('./models/login');
+
 const Dashboard = require('./models/dashboard');
 
 const app = express();
-
 // path: routes\index.js
 app.get('/', require('./routes'));
 app.get('/dashboard', require('./routes'));
@@ -67,7 +68,7 @@ app.post('/addtask', function(req,res){
     });
 });
 
-// complate the task to the database
+// complete the task to the database
 app.get('/complete-task', function(req,res){
     let id = req.query.id;
     Dashboard.findByIdAndUpdate(id, {completed: true})
@@ -102,5 +103,5 @@ app.listen(port,(err) => {
     if (err) {
         console.log(`Error: ${err}`);
     }
-    console.log(`Yupp! Server is running on port ${port}`);
+    console.log(`Yeah Server is running on port ${port}`);
 })

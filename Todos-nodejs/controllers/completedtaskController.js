@@ -1,6 +1,6 @@
 const db = require('../config/mongoose');
 const Dashboard = require('../models/dashboard');
-const User = require('../models/register');
+
 
 module.exports.completedtask = function(req, res){
     const data = Dashboard.find({})
